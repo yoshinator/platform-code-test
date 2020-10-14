@@ -2,6 +2,10 @@ require 'award'
 
 def update_quality(awards)
   awards.each do |award|
+    if award.name == 'Blue Star'
+      award.calculate_quality
+      next
+    end
     if award.name != 'Blue First' && award.name != 'Blue Compare'
       if award.quality > 0
         if award.name != 'Blue Distinction Plus'
