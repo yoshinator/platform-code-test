@@ -1,5 +1,6 @@
 class Award
-  attr_accessor :name, :expires_in, :quality
+  attr_reader :name
+  attr_accessor :expires_in, :quality
 
   def initialize(name, expires_in, quality)
     @name       = name
@@ -24,6 +25,8 @@ class Award
     @quality > 50 && @quality = 50 unless @name == 'Blue Distinction Plus'
     @expires_in -= 1 unless @name == 'Blue Distinction Plus'
   end
+
+  private
 
   def normal_item
     @expires_in > 0 ? @quality -= 1 : @quality -= 2
